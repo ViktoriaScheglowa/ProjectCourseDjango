@@ -1,0 +1,35 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<h2 class="pt-3 pb-2 mb-3">Рассылки</h2>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{% url 'mailing:mailing_create' %}" class="btn btn-secondary btn-sm">Создать рассылку</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Тема</th>
+            <th>Статус</th>
+            <th>Период</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mailing in object_list %}
+        {% if mailing.owner == request.User or perms.mailing.view_mailing %}
+        <tr>
+            <td>{{ mailing.message.subject }}</td>
+            <td>{{ mailing.status }}</td>
+            <td>{{ mailing.start_sending|date:"d M Y" }} - {{ mailing.end_sending|date:"d M Y" }}</td>
+            <td>
+                <a href="{% url 'mailing:mailing_detail' pk=mailing.pk %}" class="btn btn-outline-secondary btn-sm">Просмотр</a>
+                {% if newsletter.owner == request.user %}
+                <a href="{% url 'mailing:send_mailing' pk=mailing.pk %}" class="btn btn-outline-secondary btn-sm">Отправить</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

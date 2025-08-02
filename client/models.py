@@ -28,7 +28,7 @@ class Client(models.Model):
         blank=True,
         null=True,
         help_text='Укажите владельца',
-        related_name='recipient_owner'
+        related_name='client_owner'
     )
 
     def __str__(self):

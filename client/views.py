@@ -2,45 +2,45 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from client.models import Client
-from .forms import ClientForm
+from client.forms import ClientForm
 
 
 class ClientListView(ListView):
     model = Client
-    template_name = 'newsletters/recipient/recipient_list.html'
+    template_name = 'client/client_list.html'
 
 
 class ClientDetailView(DetailView):
     model = Client
-    template_name = 'newsletters/recipient/recipient_detail.html'
+    template_name = 'client/client_detail.html'
 
 
 class ClientCreateView(CreateView):
     model = Client
     form_class = ClientForm
-    template_name = 'newsletters/recipient/recipient_form.html'
-    success_url = reverse_lazy('newsletters:recipient_list')
+    template_name = 'client/client_form.html'
+    success_url = reverse_lazy('client:client_list')
 
     def form_valid(self, form):
-        recipient = form.save()
+        client = form.save()
         user = self.request.user
-        recipient.owner = user
-        recipient.save()
+        client.owner = user
+        client.save()
         return super().form_valid(form)
 
 
 class ClientUpdateView(UpdateView):
     model = Client
     form_class = ClientForm
-    template_name = 'newsletters/recipient/recipient_form.html'
-    success_url = reverse_lazy('newsletters:recipient_list')
+    template_name = 'client/client_form.html'
+    success_url = reverse_lazy('client:client_list')
 
     def get_success_url(self):
-        return reverse('newsletters:recipient_detail', args=[self.kwargs.get('pk')])
+        return reverse('client:client_detail', args=[self.kwargs.get('pk')])
 
 
 class ClientDeleteView(DeleteView):
     model = Client
-    template_name = 'newsletters/recipient/recipient_confirm_delete.html'
-    success_url = reverse_lazy('newsletters:recipient_list')
+    template_name = 'client/cclient_confirm_delete.html'
+    success_url = reverse_lazy('client:client_list')
 

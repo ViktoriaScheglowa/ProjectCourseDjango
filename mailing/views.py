@@ -158,12 +158,12 @@ class MailingAttemptListView(ListView):
         return queryset
 
 
-class NewsletterAttemptDetailView(DetailView):
+class MailingAttemptDetailView(DetailView):
     model = MailingAttempt
     template_name = 'mailing/mailing_attempt_detail.html'
 
 
-class SendNewsletterView(View):
+class SendMailingView(View):
     template_name = 'mailing/send_mailing.html'
 
     def get(self, request, pk):
