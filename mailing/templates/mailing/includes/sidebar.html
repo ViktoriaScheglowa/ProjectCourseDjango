@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="{% url 'mailing:message_list' %}">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{% url 'message:message_list' %}">
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#cart"></use>
                         </svg>
@@ -105,7 +105,7 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:login' %}">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{% url 'user:login' %}">
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#door-closed"></use>
                         </svg>
@@ -113,7 +113,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:register' %}">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{% url 'user:register' %}">
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#person-plus"></use>
                         </svg>

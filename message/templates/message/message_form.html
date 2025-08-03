@@ -1,4 +1,4 @@
-{% extends 'templates/base.html' %}
+{% extends 'mailing/base.html' %}
 {% block content %}
 <div class="row pt-3 pb-2 mb-3">
     <div class="col-lg-6 col-md-8 mx-auto">
@@ -19,7 +19,7 @@
                     {% else %}
                     <button type="submit" class="btn btn-outline-secondary btn-sm">Добавить</button>
                     {% endif %}
-                    <a class="btn btn-outline-secondary btn-sm" href="{% url 'mailing:message_list' %}"
+                    <a class="btn btn-outline-secondary btn-sm" href="{% url 'message:message_list' %}"
                        role="button">Назад</a>
                 </form>
             </div>

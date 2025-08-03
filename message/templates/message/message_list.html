@@ -1,9 +1,9 @@
-{% extends 'templates/base.html' %}
+{% extends 'mailing/base.html' %}
 
 {% block content %}
 <h2 class="pt-3 pb-2 mb-3">Мои письма</h2>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a href="{% url 'mailing:message_create' %}" class="btn btn-secondary btn-sm">Создать письмо</a>
+    <a href="{% url 'message:message_create' %}" class="btn btn-secondary btn-sm">Создать письмо</a>
 </div>
 <table class="table">
     <thead>
@@ -20,7 +20,7 @@
         <td>{{ message.subject }}</td>
         <td>{{ message.text|truncatechars:20 }}</td>
         <td>
-            <a href="{% url 'mailing:message_detail' pk=message.pk %}" class="btn btn-outline-secondary btn-sm">Просмотр</a>
+            <a href="{% url 'message:message_detail' pk=message.pk %}" class="btn btn-outline-secondary btn-sm">Просмотр</a>
         </td>
     </tr>
     {% endif %}

@@ -6,8 +6,8 @@ from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from client.models import Client
-from mailing.forms import MessageForm, MailingForm, MailingManagerForm
-from mailing.models import Mailing, Message, MailingAttempt
+from mailing.forms import MailingForm, MailingManagerForm
+from mailing.models import Mailing, MailingAttempt
 from .services import send_message
 
 
@@ -31,54 +31,14 @@ def home(request):
     return render(request, 'mailing/home.html', context)
 
 
-class MessageListView(ListView):
-    model = Message
-    template_name = 'mailing/message/message_list.html'
-
-
-class MessageDetailView(DetailView):
-    model = Message
-    template_name = 'mailing/message/message_detail.html'
-
-
-class MessageCreateView(CreateView):
-    model = Message
-    template_name = 'mailing/message/message_form.html'
-    form_class = MessageForm
-    success_url = reverse_lazy('mailing:message_list')
-
-    def form_valid(self, form):
-        message = form.save()
-        user = self.request.user
-        message.owner = user
-        message.save()
-        return super().form_valid(form)
-
-
-class MessageUpdateView(UpdateView):
-    model = Message
-    template_name = 'mailing/message/message_form.html'
-    form_class = MessageForm
-    success_url = reverse_lazy('mailing:message_list')
-
-    def get_success_url(self):
-        return reverse('mailing:message_detail', args=[self.kwargs.get('pk')])
-
-
-class MessageDeleteView(DeleteView):
-    model = Message
-    template_name = 'mailing/message/message_confirm_delete.html'
-    success_url = reverse_lazy('mailing:message_list')
-
-
 class MailingListView(ListView):
     model = Mailing
-    template_name = 'mailing/mailing/mailing_list.html'
+    template_name = 'mailing/mailing_list.html'
 
 
 class MailingDetailView(DetailView):
     model = Mailing
-    template_name = 'mailing/mailing/mailing_detail.html'
+    template_name = 'mailing/mailing_detail.html'
 
     def get_queryset(self):
         if self.request.user.groups.filter(name='Manager').exists():
@@ -93,7 +53,7 @@ class MailingDetailView(DetailView):
 class MailingCreateView(CreateView):
     model = Mailing
     form_class = MailingForm
-    template_name = 'mailing/mailing/mailing_form.html'
+    template_name = 'mailing/mailing_form.html'
     success_url = reverse_lazy('mailing:mailing_list')
 
     def form_valid(self, form):
@@ -107,7 +67,7 @@ class MailingCreateView(CreateView):
 class MailingUpdateView(UpdateView):
     model = Mailing
     form_class = MailingForm
-    template_name = 'mailing/mailing/mailing_form.html'
+    template_name = 'mailing/mailing_form.html'
     success_url = reverse_lazy('mailing:mailing_list')
 
     def get_success_url(self):
@@ -124,13 +84,13 @@ class MailingUpdateView(UpdateView):
 
 class MailingDeleteView(DeleteView):
     model = Mailing
-    template_name = 'mailing/mailing/mailing_confirm_delete.html'
+    template_name = 'mailing/mailing_confirm_delete.html'
     success_url = reverse_lazy('mailing:mailing_list')
 
 
 class MailingAttemptListView(ListView):
     model = MailingAttempt
-    template_name = 'newsletters/newsletter_attempt_list.html'
+    template_name = 'mailing/mailing_attempt_list.html'
     context_object_name = 'attempts'
 
     def get_context_data(self, **kwargs):
@@ -177,3 +137,4 @@ class SendMailingView(View):
             print('Рассылка не отправлена')
 
         return redirect('mailing:mailing_list')
+

@@ -3,7 +3,9 @@ from django.core.exceptions import ValidationError
 from django.forms import BooleanField, ModelForm
 
 from client.models import Client
-from mailing.models import Mailing, Message
+from mailing.models import Mailing
+from message.models import Message
+
 
 # DICT = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
 
@@ -73,7 +75,7 @@ class StyleFormMixin:
 class MailingUForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Mailing
-        fields = ['start_sending', 'end_sending', 'status', 'recipient', 'message']
+        fields = ['start_sending', 'end_sending', 'status', 'client', 'message']
 
 
 class MailingForm(StyleFormMixin, ModelForm):
@@ -94,19 +96,6 @@ class MailingManagerForm(StyleFormMixin, ModelForm):
         fields = ['status']
 
 
-class MessageForm(StyleFormMixin, ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(MessageForm, self).__init__(*args, **kwargs)
-
-        for field in self._meta.fields:
-            self.fields[field].widget.attrs.update({
-                'class': 'form-control'
-            })
-
-    class Meta:
-        model = Message
-        fields = "theme", "body"
-        exclude = ("owner",)
 
     # def clean(self):
     #     cleaned_data = super().clean()

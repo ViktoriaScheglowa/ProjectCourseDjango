@@ -4,49 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8ee650-3384-42a8-967f-68fb4f69a50f" name="Changes" comment="add structure">
-      <change afterPath="$PROJECT_DIR$/client/templates/client/client_confirm_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/templates/client/client_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/templates/client/client_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/templates/client/client_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/management/commands/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/management/commands/send_mailing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_confirm_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/mailing_attempt_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/mailing_attempt_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/message/message_confirm_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/message/message_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/message/message_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mailing/templates/message/message_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/dropdown.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/navbar_icons.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/sidebar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/password_reset_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/password_reset_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/user_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/user_list.html" afterDir="false" />
+    <list default="true" id="4b8ee650-3384-42a8-967f-68fb4f69a50f" name="Changes" comment="add functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/templates/includes/inc_menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing/boot.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base_cont.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_cont.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/inc_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,14 +59,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.manage (1).executor": "Run",
+    "Python.manage.executor": "Run",
+    "Python.registry.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\mailing\templates" />
@@ -112,6 +78,35 @@
       <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\user" />
       <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\static\css" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="manage (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ProjectCourseDjango" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.manage (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -153,13 +148,22 @@
       <option name="project" value="LOCAL" />
       <updated>1754066522111</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add functions">
+      <option name="closed" value="true" />
+      <created>1754166758068</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754166758068</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create project" />
     <MESSAGE value="add structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="add structure" />
+    <MESSAGE value="add functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="add functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

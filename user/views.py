@@ -15,9 +15,9 @@ from user.models import User
 
 
 class UserCreateView(CreateView):
-    template_name = 'users/register.html'
+    template_name = 'user/login.html'
     form_class = UserRegisterForm
-    success_url = reverse_lazy('mailing:mailing')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         user = form.save()
@@ -42,14 +42,14 @@ def email_verification(request, token):
     user = get_object_or_404(User, token=token)
     user.is_active = True
     user.save()
-    return redirect(reverse("catalog:product_list"))
+    return redirect(reverse("user:login"))
 
 
 class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserProfileForm
-    template_name = 'users/profile.html'
-    success_url = reverse_lazy('users:profile')
+    template_name = 'user/profile.html'
+    success_url = reverse_lazy('user:profile')
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -57,17 +57,17 @@ class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
 
 class UserListView(ListView):
     model = User
-    template_name = 'users/user_list.html'
+    template_name = 'user/user_list.html'
 
 
 def block_user(request, pk):
-    if not request.user.has_perm('users.can_block_user'):
+    if not request.user.has_perm('user.can_block_user'):
         messages.error(request, 'У вас нет прав для блокировки пользователей')
-        return redirect('newsletters:home')
+        return redirect('mailing:home')
 
     user = get_object_or_404(User, pk=pk)
     user.is_active = False
     user.save()
 
     action = "разблокирован" if user.is_active else "заблокирован"
-    return redirect('users:user_list')
+    return redirect('user:user_list')
