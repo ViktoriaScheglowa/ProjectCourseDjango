@@ -1,0 +1,26 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+<h2 class="pt-3 pb-2 mb-3">Рассылка: {{ object.message.subject }}</h2>
+<div class="card">
+    <div class="card-body">
+        <p><strong>Статус:</strong> {{ object.status }}</p>
+        <p><strong>Период:</strong> {{ object.start_sending }} - {{ object.end_sending }}</p>
+        <p><strong>Сообщение:</strong> {{ object.message.text }}</p>
+        <p><strong>Получатели:</strong></p>
+        <ul>
+            {% for client in object.client.all %}
+            <li>{{ client.full_name }} ({{ client.email }})</li>
+            {% endfor %}
+        </ul>
+        {% if object.owner == request.user %}
+        <a href="{% url 'mailing:send_mailing' object.pk %}" class="btn btn-outline-secondary btn-sm">Отправить сейчас</a>
+        <a href="{% url 'mailing:mailing_delete' object.pk %}" class="btn btn-outline-secondary btn-sm">Удалить</a>
+
+        {% elif object.owner == request.user or perms.mailing.view_mailing %}
+        <a href="{% url 'mailing:mailing_update' object.pk %}" class="btn btn-outline-secondary btn-sm">Изменить</a>
+        <a href="{% url 'mailing:mailing_list' %}" class="btn btn-outline-secondary btn-sm">Назад</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

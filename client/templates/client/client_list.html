@@ -1,0 +1,30 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+<h2 class="pt-3 pb-2 mb-3">Клиенты</h2>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{% url 'client:client_create' %}" class="btn btn-secondary btn-sm">Добавить клиента</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Комментарий</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for client in object_list %}
+        {% if client.owner == request.user or perms.client.view_client %}
+        <tr>
+            <td>{{ client.full_name }}</td>
+            <td>{{ client.message }}</td>
+            <td>
+                <a href="{% url 'client:client_detail' client.pk %}" class="btn btn-outline-secondary btn-sm">Просмотр</a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
