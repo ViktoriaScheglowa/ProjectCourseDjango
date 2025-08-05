@@ -62,6 +62,12 @@ class Mailing(models.Model):
         verbose_name = 'Рассылка'
         verbose_name_plural = 'Рассылки'
         ordering = ['status', 'end_sending', 'start_sending',]
+        permissions = [
+            ("can_all_view_mailing", "Просмотр всех рассылок"),
+            ("can_delete_mailing", "Удаление рассылки"),
+            ("can_update_mailing", "Обновление рассылки"),
+            ("can_create_mailing", "Добавление рассылки"),
+        ]
 
 
 class MailingAttempt(models.Model):
@@ -80,7 +86,6 @@ class MailingAttempt(models.Model):
     status = models.CharField(
         max_length=10,
         choices=STATUS_CHOICES,
-        default=UNSUCCESS,
         verbose_name='Статус',
         help_text='Статус попытки рассылки'
     )

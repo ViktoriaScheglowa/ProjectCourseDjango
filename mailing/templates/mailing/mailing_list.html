@@ -23,7 +23,7 @@
             <td>{{ mailing.start_sending|date:"d M Y" }} - {{ mailing.end_sending|date:"d M Y" }}</td>
             <td>
                 <a href="{% url 'mailing:mailing_detail' pk=mailing.pk %}" class="btn btn-outline-secondary btn-sm">Просмотр</a>
-                {% if mailing.owner == request.user %}
+                {% if mailing.owner == request.user or perms.mailing.view_mailing %}
                 <a href="{% url 'mailing:send_mailing' pk=mailing.pk %}" class="btn btn-outline-secondary btn-sm">Отправить</a>
                 {% endif %}
             </td>

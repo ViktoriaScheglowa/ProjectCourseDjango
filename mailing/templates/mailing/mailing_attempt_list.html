@@ -22,19 +22,19 @@
         {% for attempt in attempts %}
         <tr>
             <td>
-                {% if attempt.mailing %}
-                    {{ attempt.mailing.message.subject|default:"Без темы" }}
+                {% if attempts.mailing %}
+                    {{ attempts.mailing.message.subject|default:"Без темы" }}
                 {% else %}
                     Рассылка удалена
                 {% endif %}
             </td>
             <td>
-                <span class="badge {% if attempt.status == 'Успешно' %}bg-success{% else %}bg-danger{% endif %}">
-                    {{ attempt.status }}
+                <span class="badge {% if attempts.status == 'Успешно' %}bg-success{% else %}bg-danger{% endif %}">
+                    {{ attempts.status }}
                 </span>
             </td>
-            <td>{{ attempt.answer|truncatechars:30 }}</td>
-            <td>{{ attempt.date_attempt|date:"d.m.Y H:i" }}</td>
+            <td>{{ attempts.answer|truncatechars:30 }}</td>
+            <td>{{ attempts.date_attempt|date:"d.m.Y H:i" }}</td>
             <td><a href="{% url 'mailing:mailing_attempt_detail' attempt.pk %}" class="btn btn-outline-secondary btn-sm">Посмотреть</a></td>
         </tr>
         {% endfor %}
