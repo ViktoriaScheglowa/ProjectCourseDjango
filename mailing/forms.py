@@ -79,15 +79,9 @@ class MailingUForm(StyleFormMixin, forms.ModelForm):
 
 
 class MailingForm(StyleFormMixin, ModelForm):
-    message = forms.ModelChoiceField(queryset=Message.objects.all())
-    clients = forms.ModelMultipleChoiceField(
-        queryset=Client.objects.all(),
-        widget=forms.CheckboxSelectMultiple
-    )
-
     class Meta:
         model = Mailing
-        fields = ['message', 'clients', 'start_sending', 'end_sending']
+        fields = ['message', 'client', 'start_sending', 'end_sending']
 
 
 class MailingManagerForm(StyleFormMixin, ModelForm):
@@ -96,34 +90,7 @@ class MailingManagerForm(StyleFormMixin, ModelForm):
         fields = ['status']
 
 
-
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     name = cleaned_data.get("name")
-    #     description = cleaned_data.get("description")
-    #
-    #     if name:
-    #         self.validate_forbidden_words(name)
-    #     if description:
-    #         self.validate_forbidden_words(description)
-    #
-    #     return cleaned_data
-    #
-    # def validate_forbidden_words(self, value):
-    #     for word in DICT:
-    #         if word.lower() in value.lower():
-    #             raise forms.ValidationError(f"Слово '{word}' запрещено использовать.")
-    #
-    # def clean_price(self):
-    #     price = self.cleaned_data.get("price")
-    #
-    #     if price is not None and price <= 0:
-    #         raise forms.ValidationError("Цена не может быть отрицательной.")
-    #
-    #     return price
-
-
-# class MailingModeratorForm(StyleFormMixin, ModelForm):
-#     class Meta:
-#         model = Mailing
-#         fields = "__all__"
+class MailingModeratorForm(StyleFormMixin, ModelForm):
+    class Meta:
+        model = Mailing
+        fields = "__all__"

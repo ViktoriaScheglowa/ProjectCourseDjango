@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group, Permission
 from django.core.management import BaseCommand
 
 import user
@@ -8,6 +9,13 @@ class Command(BaseCommand):
     help = "Добавление суперюзера"
 
     def handle(self, *args, **options):
+        managers_group, created = Group.objects.get_or_create(name="Manager")
+        if created:
+            permissions = Permission.objects.filter(
+                codename__in=["add_mailing", "change_mailing", "can_block_user"]
+            )
+            managers_group.permissions.set(permissions)
+
         super_user: User = User.objects.create(email='admin@admin.com',
                                                first_name='Admin',
                                                last_name='Adminexin',

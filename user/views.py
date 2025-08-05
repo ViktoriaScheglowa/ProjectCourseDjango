@@ -15,9 +15,9 @@ from user.models import User
 
 
 class UserCreateView(CreateView):
-    template_name = 'user/login.html'
+    template_name = 'user/user_form.html'
     form_class = UserRegisterForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('mailing:home')
 
     def form_valid(self, form):
         user = form.save()
@@ -55,7 +55,7 @@ class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
         return self.request.user
 
 
-class UserListView(ListView):
+class UserListView(LoginRequiredMixin, ListView):
     model = User
     template_name = 'user/user_list.html'
 

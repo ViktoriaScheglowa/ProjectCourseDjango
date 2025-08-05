@@ -11,17 +11,17 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         now = timezone.now()
         try:
-            mailing = Mailing.objects.filter(
+            mailings = Mailing.objects.filter(
                 start_sending__lte=now,
                 end_sending__gte=now,
                 status__in=[Mailing.CREATED, Mailing.ACTIVATED]
             )
-            for newsletter in mailing:
-                send_message(newsletter.pk)
+            for mailing in mailings:
+                send_message(mailing.pk)
 
-                if newsletter.status == Mailing.CREATED:
-                    newsletter.status = Mailing.ACTIVATED
-                    newsletter.save()
+                if mailing.status == Mailing.CREATED:
+                    mailing.status = Mailing.ACTIVATED
+                    mailing.save()
             return 'Рассылки отправлены.'
         except Exception as ex:
             return str(ex)

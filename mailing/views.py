@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, get_object_or_404, redirect
@@ -31,12 +32,18 @@ def home(request):
     return render(request, 'mailing/home.html', context)
 
 
-class MailingListView(ListView):
+class MailingListView(LoginRequiredMixin, ListView):
     model = Mailing
     template_name = 'mailing/mailing_list.html'
 
+    def get_queryset(self):
+        if self.request.user.groups.filter(name='Manager').exists():
+            return Mailing.objects.all()
+        else:
+            return Mailing.objects.filter(owner=self.request.user)
 
-class MailingDetailView(DetailView):
+
+class MailingDetailView(LoginRequiredMixin, DetailView):
     model = Mailing
     template_name = 'mailing/mailing_detail.html'
 
@@ -50,7 +57,7 @@ class MailingDetailView(DetailView):
         return super().get_queryset()
 
 
-class MailingCreateView(CreateView):
+class MailingCreateView(LoginRequiredMixin, CreateView):
     model = Mailing
     form_class = MailingForm
     template_name = 'mailing/mailing_form.html'
@@ -64,7 +71,7 @@ class MailingCreateView(CreateView):
         return super().form_valid(form)
 
 
-class MailingUpdateView(UpdateView):
+class MailingUpdateView(LoginRequiredMixin, UpdateView):
     model = Mailing
     form_class = MailingForm
     template_name = 'mailing/mailing_form.html'
@@ -82,13 +89,13 @@ class MailingUpdateView(UpdateView):
         raise PermissionDenied
 
 
-class MailingDeleteView(DeleteView):
+class MailingDeleteView(LoginRequiredMixin, DeleteView):
     model = Mailing
     template_name = 'mailing/mailing_confirm_delete.html'
     success_url = reverse_lazy('mailing:mailing_list')
 
 
-class MailingAttemptListView(ListView):
+class MailingAttemptListView(LoginRequiredMixin, ListView):
     model = MailingAttempt
     template_name = 'mailing/mailing_attempt_list.html'
     context_object_name = 'attempts'
@@ -100,7 +107,7 @@ class MailingAttemptListView(ListView):
         context['successful_attempts'] = attempts.filter(status='Успешно').count()
         context['unsucessful_attempts'] = attempts.filter(status='Не успешно').count()
         context['sending_mails'] = sum(
-            attempt.newsletter.recipient.count()
+            attempt.mailing.client.count()
             for attempt in attempts.filter(status='Успешно')
         )
         return context
@@ -118,7 +125,7 @@ class MailingAttemptListView(ListView):
         return queryset
 
 
-class MailingAttemptDetailView(DetailView):
+class MailingAttemptDetailView(LoginRequiredMixin, DetailView):
     model = MailingAttempt
     template_name = 'mailing/mailing_attempt_detail.html'
 

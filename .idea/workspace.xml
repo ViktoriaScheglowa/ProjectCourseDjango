@@ -6,10 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="4b8ee650-3384-42a8-967f-68fb4f69a50f" name="Changes" comment="add functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailing/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/management/commands/send_mailing.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/management/commands/send_mailing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing/mailing_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing_attempt_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_attempt_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing_attempt_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_attempt_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/message/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/message/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/management/commands/add_superuser.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/management/commands/add_superuser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,24 +70,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.manage (1).executor": "Run",
-    "Python.manage.executor": "Run",
-    "Python.registry.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.manage (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
+    &quot;Python.registry.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\mailing\templates\mailing" />
+      <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\user\templates" />
+      <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\user\templates\user" />
       <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\mailing\templates" />
       <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\static\js" />
-      <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\media" />
-      <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\user" />
-      <recent name="C:\Users\user\PycharmProjects\ProjectCourseDjango\static\css" />
     </key>
   </component>
   <component name="RunManager">

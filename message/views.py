@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.views.generic import DeleteView, ListView, DetailView, CreateView, UpdateView
 
@@ -5,17 +6,23 @@ from message.forms import MessageForm
 from message.models import Message
 
 
-class MessageListView(ListView):
+class MessageListView(LoginRequiredMixin, ListView):
     model = Message
     template_name = 'message/message_list.html'
 
+    def get_queryset(self):
+        if self.request.user.groups.filter(name='Manager').exists():
+            return Message.objects.all()
+        else:
+            return Message.objects.filter(owner=self.request.user)
 
-class MessageDetailView(DetailView):
+
+class MessageDetailView(LoginRequiredMixin, DetailView):
     model = Message
     template_name = 'message/message_detail.html'
 
 
-class MessageCreateView(CreateView):
+class MessageCreateView(LoginRequiredMixin, CreateView):
     model = Message
     template_name = 'message/message_form.html'
     form_class = MessageForm
@@ -29,7 +36,7 @@ class MessageCreateView(CreateView):
         return super().form_valid(form)
 
 
-class MessageUpdateView(UpdateView):
+class MessageUpdateView(LoginRequiredMixin, UpdateView):
     model = Message
     template_name = 'message/message_form.html'
     form_class = MessageForm
@@ -39,7 +46,7 @@ class MessageUpdateView(UpdateView):
         return reverse('message:message_detail', args=[self.kwargs.get('pk')])
 
 
-class MessageDeleteView(DeleteView):
+class MessageDeleteView(LoginRequiredMixin, DeleteView):
     model = Message
     template_name = 'message/message_confirm_delete.html'
     success_url = reverse_lazy('message:message_list')
