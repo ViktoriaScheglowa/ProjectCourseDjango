@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 {% endif %}
-                {% if perms.users.view_user %}
+                {% if perms.user.view_user %}
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{% url 'user:user_list' %}">
                         <svg class="bi" aria-hidden="true">

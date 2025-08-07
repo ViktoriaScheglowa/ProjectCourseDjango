@@ -79,6 +79,14 @@ class MailingUForm(StyleFormMixin, forms.ModelForm):
 
 
 class MailingForm(StyleFormMixin, ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+        if user:
+            self.fields['message'].queryset = self.fields['message'].queryset.filter(owner=user)
+            self.fields['client'].queryset = self.fields['client'].queryset.filter(owner=user)
+
     class Meta:
         model = Mailing
         fields = ['message', 'client', 'start_sending', 'end_sending']

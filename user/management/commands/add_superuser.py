@@ -12,7 +12,7 @@ class Command(BaseCommand):
         managers_group, created = Group.objects.get_or_create(name="Manager")
         if created:
             permissions = Permission.objects.filter(
-                codename__in=["add_mailing", "change_mailing", "can_block_user"]
+                codename__in=["add_mailing", "change_mailing", "can_block_user", "view_mailing", "view_client", "view_user",]
             )
             managers_group.permissions.set(permissions)
 
