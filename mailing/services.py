@@ -28,7 +28,7 @@ def send_message(pk, request=None):
     if mailing.status == Mailing.ENDED:
         MailingAttempt.objects.create(
             mailing=mailing,
-            status=MailingAttempt.UNSUCCESS,
+            status=MailingAttempt.SUCCESS,
             answer='Рассылка уже завершена',
             date_attempt=now,
         )
@@ -47,7 +47,7 @@ def send_message(pk, request=None):
         mailing.save()
         MailingAttempt.objects.create(
             mailing=mailing,
-            status=MailingAttempt.UNSUCCESS,
+            status=MailingAttempt.SUCCESS,
             answer=f'Время рассылки уже прошло (конец - {mailing.end_sending}, сейчас - {now})',
             date_attempt=now,
         )
@@ -73,7 +73,7 @@ def send_message(pk, request=None):
 
         MailingAttempt.objects.create(
             mailing=mailing,
-            status=MailingAttempt.UNSUCCESS,
+            status=MailingAttempt.SUCCESS,
             answer='Рассылка отправлена',
             date_attempt=now,
         )

@@ -6,21 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4b8ee650-3384-42a8-967f-68fb4f69a50f" name="Changes" comment="add functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailing/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/management/commands/send_mailing.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/management/commands/send_mailing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailing/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing/includes/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/includes/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing/mailing_attempt_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_attempt_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailing/templates/mailing/mailing_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing_attempt_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_attempt_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailing/templates/mailing_attempt_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/templates/mailing/mailing_attempt_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailing/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailing/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/message/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/management/commands/add_superuser.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/management/commands/add_superuser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754166758068</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add functions">
+      <option name="closed" value="true" />
+      <created>1754387197264</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754387197264</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

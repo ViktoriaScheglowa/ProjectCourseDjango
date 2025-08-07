@@ -16,7 +16,7 @@
     </thead>
     <tbody>
         {% for mailing in object_list %}
-        {% if mailing.owner == request.User or perms.mailing.view_mailing %}
+        {% if mailing.owner == request.user or perms.mailing.view_mailing %}
         <tr>
             <td>{{ mailing.message.subject }}</td>
             <td>{{ mailing.status }}</td>

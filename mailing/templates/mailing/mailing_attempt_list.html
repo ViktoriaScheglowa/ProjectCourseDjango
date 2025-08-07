@@ -22,19 +22,19 @@
         {% for attempt in attempts %}
         <tr>
             <td>
-                {% if attempts.mailing %}
-                    {{ attempts.mailing.message.subject|default:"Без темы" }}
+                {% if attempt.mailing %}
+                    {{ attempt.mailing.message.subject|default:"Без темы" }}
                 {% else %}
                     Рассылка удалена
                 {% endif %}
             </td>
             <td>
-                <span class="badge {% if attempts.status == 'Успешно' %}bg-success{% else %}bg-danger{% endif %}">
-                    {{ attempts.status }}
+                <span class="badge {% if attempt.status == 'Успешно' %}bg-success{% else %}bg-danger{% endif %}">
+                    {{ attempt.status }}
                 </span>
             </td>
-            <td>{{ attempts.answer|truncatechars:30 }}</td>
-            <td>{{ attempts.date_attempt|date:"d.m.Y H:i" }}</td>
+            <td>{{ attempt.answer|truncatechars:30 }}</td>
+            <td>{{ attempt.date_attempt|date:"d.m.Y H:i" }}</td>
             <td><a href="{% url 'mailing:mailing_attempt_detail' attempt.pk %}" class="btn btn-outline-secondary btn-sm">Посмотреть</a></td>
         </tr>
         {% endfor %}
@@ -45,7 +45,7 @@
         {% if user.is_authenticated %}
             У вас пока нет попыток рассылок
         {% else %}
-            Для просмотра статистики необходимо <a href="{% url 'users:login' %}" class="btn btn-link">войти</a>
+            Для просмотра статистики необходимо <a href="{% url 'user:login' %}" class="btn btn-link">войти</a>
         {% endif %}
     </div>
     {% endif %}

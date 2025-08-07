@@ -70,6 +70,11 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
         mailing.save()
         return super().form_valid(form)
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
 
 class MailingUpdateView(LoginRequiredMixin, UpdateView):
     model = Mailing
@@ -119,7 +124,10 @@ class MailingAttemptListView(LoginRequiredMixin, ListView):
         cache_key = f'mailing_attempts_user_{self.request.user.pk}'
         queryset = cache.get(cache_key)
         if not queryset:
-            queryset = MailingAttempt.objects.filter(mailing__owner=self.request.user).order_by('-date_attempt')
+            if self.request.user.groups.filter(name='Manager').exists():
+                queryset = MailingAttempt.objects.all()
+            else:
+                queryset = MailingAttempt.objects.filter(mailing__owner=self.request.user).order_by('-date_attempt')
             cache.set(cache_key, queryset, 60 * 15)
 
         return queryset
